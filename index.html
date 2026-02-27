@@ -1,157 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Himachal-Tel | Connecting the Mountains</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himachal-Tel | Premium Connectivity</title>
+    <style>
+        :root {
+            --soft-blue: #e3f2fd;
+            --main-blue: #0277bd;
+            --deep-navy: #01579b;
+            --accent-gold: #ffd60a;
+            --text-dark: #333;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f9;
-}
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--soft-blue);
+            color: var(--text-dark);
+        }
 
-header {
-    background: linear-gradient(90deg, #002855, #00509d);
-    color: white;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: white;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-header h1 {
-    margin: 0;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--main-blue);
+            text-transform: uppercase;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
+        nav a {
+            text-decoration: none;
+            color: var(--deep-navy);
+            margin: 0 12px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
 
-nav a:hover {
-    color: #ffd60a;
-}
+        nav a:hover {
+            color: var(--main-blue);
+            border-bottom: 2px solid var(--main-blue);
+        }
 
-/* Hero with updated background */
-.hero {
-    background: url('HIMACHAL_BG_URL') no-repeat center center/cover;
-    color: white;
-    padding: 140px 20px;
-    text-align: center;
-}
+        /* HERO SECTION - SNOWY MOUNTAINS */
+        .hero {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1586036724211-19349806878b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
 
-.hero h2 {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(1, 87, 155, 0.3); /* Subtle blue tint */
+        }
 
-.hero button {
-    padding: 12px 25px;
-    background-color: #ffd60a;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-}
+        .hero-content {
+            position: relative;
+            text-align: center;
+            z-index: 2;
+        }
 
-.section {
-    padding: 60px 50px;
-    text-align: center;
-}
+        .hero h2 { font-size: 48px; margin: 0; }
+        .hero p { font-size: 20px; font-weight: 300; }
 
-.cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+        /* TABS / SERVICES SECTION */
+        .section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; color: var(--deep-navy); margin-bottom: 40px; }
 
-.card {
-    background: white;
-    padding: 25px;
-    width: 280px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+        .tabs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-.card h3 {
-    color: #00509d;
-}
+        .tab-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
+            border-top: 5px solid var(--main-blue);
+        }
 
-footer {
-    background-color: #002855;
-    color: white;
-    padding: 40px;
-    text-align: center;
-}
+        .tab-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
 
-.footer-links a {
-    color: #ffd60a;
-    margin: 0 10px;
-    text-decoration: none;
-}
-</style>
+        .tab-card h3 { color: var(--main-blue); margin-bottom: 10px; }
+        .tab-card p { font-size: 14px; color: #666; }
+
+        /* CONTACT / SUPPORT FOOTER */
+        .support-bar {
+            background-color: var(--deep-navy);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item { font-size: 18px; }
+        .contact-item span { color: var(--accent-gold); font-weight: bold; }
+
+        footer {
+            background: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-    <h1>Himachal-Tel</h1>
+    <div class="logo">Himachal-Tel</div>
     <nav>
         <a href="#">Home</a>
-        <a href="#">Recharge</a>
-        <a href="#">Prepaid Bonus</a>
-        <a href="#">Family Sharing</a>
-        <a href="#">Contact</a>
+        <a href="#services">eSIM</a>
+        <a href="#services">Global Roaming</a>
+        <a href="#services">Satellite</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>Connecting Himachal to the World</h2>
-    <p>Fastest 5G | Best Coverage | Affordable Plans</p>
-    <button>Recharge Now</button>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h2>Connecting the Peaks</h2>
+        <p>Reliable 5G Coverage in Every Valley</p>
+    </div>
 </section>
 
-<section class="section">
-    <h2>Popular Services</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Prepaid Recharge</h3>
-            <p>Instant online recharge with exciting cashback offers.</p>
+<section class="section" id="services">
+    <h2 class="section-title">Explore Our Premium Plans</h2>
+    <div class="tabs-container">
+        <div class="tab-card">
+            <h3>eSIM Activation</h3>
+            <p>Go digital instantly. No physical SIM card required for your high-altitude adventures.</p>
         </div>
-        <div class="card">
-            <h3>Prepaid Bonus</h3>
-            <p>Get extra data & unlimited calling with special bonus packs.</p>
+        <div class="tab-card">
+            <h3>Global Roaming</h3>
+            <p>Stay connected with home even when traveling from Himachal to Riyadh or beyond.</p>
         </div>
-        <div class="card">
-            <h3>Family Sharing</h3>
-            <p>Share your data and talktime with family members easily.</p>
-        </div>
-        <div class="card">
-            <h3>5G Unlimited</h3>
-            <p>Experience lightning-fast 5G internet across Himachal.</p>
+        <div class="tab-card">
+            <h3>Satellite Link</h3>
+            <p>Specialized satellite packages for remote snow zones and deep mountain trekking.</p>
         </div>
     </div>
 </section>
 
-<section class="section" style="background-color:#e9ecef;">
-    <h2>Customer Support</h2>
-    <p><strong>Toll Free:</strong> 1800-120-2026</p>
-    <p><strong>Helpline:</strong> 121 (From Himachal-Tel Number)</p>
-    <p><strong>Email:</strong> support@himachaltel.in</p>
-</section>
+<div class="support-bar" id="contact">
+    <h2>24/7 Priority Support</h2>
+    <div class="contact-info">
+        <div class="contact-item">Toll Free: <span>111</span></div>
+        <div class="contact-item">Direct: <span>+966-592431842</span></div>
+        <div class="contact-item">Email: <span>support@himachaltel.in</span></div>
+    </div>
+</div>
 
 <footer>
-    <h3>Himachal-Tel</h3>
-    <p>© 2026 Himachal-Tel. All Rights Reserved.</p>
-    <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Careers</a>
-    </div>
+    <p>&copy; 2026 Himachal-Tel. Head Office: Shimla, HP. International Desk: Riyadh, KSA.</p>
 </footer>
 
 </body>
