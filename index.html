@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himachal-Tel | Connecting the Peaks</title>
+    <title>Himachal-Tel | Mountain Connectivity</title>
     <style>
         :root {
             --pleasant-blue: #0288d1;
-            --deep-ocean: #01579b;
+            --pine-green: #2d6a4f;
             --snow-white: #ffffff;
-            --accent-gold: #ffc107;
+            --himachali-cap-red: #c62828;
+            --himachali-cap-gold: #ffc107;
             --main-font: 'Segoe UI', Arial, sans-serif;
         }
 
@@ -20,34 +21,58 @@
             color: #333;
         }
 
-        /* --- THE NEW CSS LOGO --- */
+        /* --- THE NEW LOGO SECTION --- */
         .brand {
             display: flex;
             align-items: center;
             text-decoration: none;
+            gap: 12px;
+        }
+
+        /* 1. Stylyzed Pine Branch */
+        .pine-branch {
+            font-size: 32px;
+            color: var(--pine-green);
+            transform: rotate(-15deg);
+        }
+
+        /* 2. Hanging Items Container */
+        .hanging-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        /* The string connecting branch to items */
+        .hanging-string {
+            width: 2px;
+            height: 15px;
+            background-color: #777;
+        }
+
+        /* Mobile Icon and Cap icon container */
+        .items-row {
+            display: flex;
             gap: 5px;
         }
 
-        .logo-peak {
-            color: var(--accent-gold);
-            font-size: 30px;
-            font-weight: 900;
-        }
+        .mobile-icon { font-size: 18px; color: #555; }
+        .cap-icon { font-size: 18px; color: var(--himachali-cap-red); text-shadow: 1px 1px 0 var(--himachali-cap-gold); }
 
+        /* The Brand Text */
         .logo-text {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             letter-spacing: -1px;
-            background: linear-gradient(135deg, var(--deep-ocean), var(--pleasant-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--pine-green);
         }
 
-        /* ------------------------- */
+        /* --------------------------- */
 
         header {
             background: rgba(255, 255, 255, 0.98);
-            padding: 10px 50px;
+            padding: 5px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,28 +85,28 @@
         nav a {
             text-decoration: none;
             color: #444;
-            margin: 0 12px;
+            margin: 0 10px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: var(--pleasant-blue);
-        }
+        nav a:hover { color: var(--pine-green); }
 
+        /* --- NEW HERO: GREEN PINE & SNOW BACKGROUND --- */
         .hero {
             position: relative;
-            background-image: url('https://images.pexels.com/photos/14350710/pexels-photo-14350710.jpeg');
+            /* Direct link to specific Snowy Pine landscape */
+            background-image: url('https://images.unsplash.com/photo-1610471206159-86bd9bb828a2?auto=format&fit=crop&q=80&w=2070');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            height: 550px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
         }
 
         .hero::before {
@@ -92,12 +117,12 @@
         }
 
         .hero-content { position: relative; z-index: 1; text-align: center; }
-        .hero h2 { font-size: 50px; margin-bottom: 5px; }
-        .hero p { font-size: 20px; font-weight: 300; margin-bottom: 25px; }
+        .hero h2 { font-size: 46px; margin-bottom: 5px; }
+        .hero p { font-size: 18px; font-weight: 300; margin-bottom: 25px; }
 
         .btn-prime {
             padding: 15px 40px;
-            background: var(--accent-gold);
+            background: var(--himachali-cap-gold);
             border: none;
             font-weight: bold;
             border-radius: 50px;
@@ -111,25 +136,23 @@
             background: #ffb300;
         }
 
-        .section { padding: 50px 40px; max-width: 1200px; margin: auto; }
+        .section { padding: 40px; max-width: 1200px; margin: auto; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 
         .card {
             background: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.03);
             text-align: center;
-            border-bottom: 4px solid var(--pleasant-blue);
-            transition: 0.3s;
+            border-bottom: 4px solid var(--pine-green);
         }
 
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { color: var(--deep-ocean); margin-bottom: 10px; }
+        .card h3 { color: var(--pine-green); margin-bottom: 8px; }
         .card p { font-size: 14px; color: #666; }
 
         .support-bar {
-            background: var(--deep-ocean);
+            background: var(--pine-green);
             color: white;
             padding: 30px;
             text-align: center;
@@ -143,16 +166,25 @@
             flex-wrap: wrap;
         }
 
-        .contact-item b { color: var(--accent-gold); font-size: 18px; }
+        .contact-item b { color: var(--himachali-cap-gold); font-size: 18px; }
 
-        footer { padding: 20px; text-align: center; background: #f1f1f1; font-size: 12px; color: #777; }
+        footer { padding: 20px; text-align: center; background: #f1f1f1; font-size: 11px; color: #777; }
     </style>
 </head>
 <body>
 
 <header>
     <a href="#" class="brand">
-        <span class="logo-peak">▲</span>
+        <span class="pine-branch">🌲</span>
+        
+        <div class="hanging-items">
+            <div class="hanging-string"></div>
+            <div class="items-row">
+                <span class="mobile-icon">📱</span>
+                <span class="cap-icon">🎓</span>
+            </div>
+        </div>
+        
         <span class="logo-text">HIMACHAL-TEL</span>
     </a>
 
@@ -168,25 +200,25 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h2>Connecting the Valley</h2>
+        <h2>Connecting the Peaks</h2>
         <p>Reliable 5G Coverage. Snowproof Network.</p>
-        <button class="btn-prime">Check Availability</button>
+        <button class="btn-prime">Explore Packages</button>
     </div>
 </section>
 
 <section class="section">
     <div class="grid">
         <div class="card">
-            <h3>Prepaid Offers</h3>
-            <p>Instant activation with 5G bonus data and unlimited calling.</p>
+            <h3>eSIM Activation</h3>
+            <p>Go digital instantly. No physical SIM needed for mountain trekking.</p>
         </div>
         <div class="card">
-            <h3>Global eSIM</h3>
-            <p>Seamless connectivity without physical SIMs. Perfect for travelers.</p>
+            <h3>Global Roaming</h3>
+            <p>Seamless connectivity from Shimla to Riyadh and beyond.</p>
         </div>
         <div class="card">
-            <h3>Satellite Link</h3>
-            <p>Specialized packages for remote mountain areas and snow zones.</p>
+            <h3>Satellite Services</h3>
+            <p>Specialized satellite packages for remote snow zones.</p>
         </div>
     </div>
 </section>
