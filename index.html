@@ -3,27 +3,98 @@
 <head>
     <title>Business Portal</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
-        h2 { color: #004080; border-bottom: 2px solid #eee; }
-        ul { list-style-type: square; }
+        /* The whole page background */
+        body { 
+            background-color: #2d5a27; /* Forest Green */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Main Big Heading */
+        h1 { 
+            color: white; 
+            font-size: 3rem; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        /* Content Sections */
+        .section-box {
+            background-color: #f9f9f9; /* Light Grey/White content */
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 { color: #2d5a27; border-bottom: 2px solid #2d5a27; padding-bottom: 5px; }
+
+        /* Little boxes for sub-options */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .sub-box {
+            background: #e8f5e9;
+            border: 1px solid #2d5a27;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #1b331a;
+            transition: transform 0.2s;
+        }
+
+        .sub-box:hover {
+            transform: scale(1.05);
+            background: #c8e6c9;
+        }
     </style>
 </head>
 <body>
-    <h2>Our Services</h2>
-    <ul>
-        <li>Telecom</li><li>Technology</li><li>IT</li><li>Civil</li><li>Security</li>
-    </ul>
 
-    <h2>Our Offices</h2>
-    <ul>
-        <li>New Delhi - India</li>
-        <li>Beijing - China</li>
-        <li>California - US</li>
-        <li>Riyadh - Saudi Arabia</li>
-        <li>Dubai - UAE</li>
-    </ul>
+    <h1>GLOBAL BUSINESS PORTAL</h1>
 
-    <h2>Contact Us</h2>
-    <p>Email, Mobile, Phone, Social Media</p>
+    <div class="section-box">
+        <h2>Our Services</h2>
+        <div class="grid-container">
+            <div class="sub-box">Telecom</div>
+            <div class="sub-box">Technology</div>
+            <div class="sub-box">IT</div>
+            <div class="sub-box">Civil</div>
+            <div class="sub-box">Security</div>
+        </div>
+    </div>
+
+    <div class="section-box">
+        <h2>Our Offices</h2>
+        <div class="grid-container">
+            <div class="sub-box">New Delhi, India</div>
+            <div class="sub-box">Beijing, China</div>
+            <div class="sub-box">California, US</div>
+            <div class="sub-box">Riyadh, Saudi Arabia</div>
+            <div class="sub-box">Dubai, UAE</div>
+        </div>
+    </div>
+
+    <div class="section-box">
+        <h2>Contact Us</h2>
+        <div class="grid-container">
+            <div class="sub-box">Email</div>
+            <div class="sub-box">Mobile</div>
+            <div class="sub-box">Phone</div>
+            <div class="sub-box">Social Media</div>
+        </div>
+    </div>
+
 </body>
 </html>
