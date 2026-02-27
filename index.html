@@ -16,13 +16,12 @@
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
-            /* Fail-safe background: Deep Pine Green if image fails */
             background-color: var(--pine-green);
         }
 
-        /* FULL PAGE BACKGROUND */
         .page-wrapper {
-            background-image: url('https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&q=80&w=2070');
+            background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), 
+                              url('https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&q=80&w=2070');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -31,14 +30,16 @@
             flex-direction: column;
         }
 
-        /* --- THE DETAILED LOGO --- */
         .header {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid var(--pine-green);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo-container {
@@ -47,16 +48,14 @@
             position: relative;
         }
 
-        /* The Pine Branch Drawing */
         .pine-art {
             width: 80px; height: 10px;
-            background: #5d4037; /* Wood Branch */
+            background: #5d4037;
             border-radius: 5px;
             position: relative;
             transform: rotate(-5deg);
         }
 
-        /* The Hanging String */
         .string {
             position: absolute;
             left: 50%; top: 10px;
@@ -64,7 +63,6 @@
             background: #666;
         }
 
-        /* The Mobile Hanging */
         .mobile {
             position: absolute;
             left: calc(50% - 12px); top: 45px;
@@ -75,7 +73,6 @@
             box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* The Himachali Cap in front of Mobile */
         .cap {
             position: absolute;
             left: calc(50% - 15px); top: 38px;
@@ -93,18 +90,17 @@
             color: var(--pine-green);
         }
 
-        /* MENU */
+        /* UPDATED: NAVIGATION FONT SIZE & COLOUR */
         nav a {
             text-decoration: none;
-            color: #333;
-            margin: 0 10px;
-            font-weight: 700;
-            font-size: 14px;
+            color: var(--pine-green); /* Changed to Green */
+            margin: 0 12px;
+            font-weight: 800; /* Bolder */
+            font-size: 18px;  /* Larger Font */
             transition: 0.2s;
         }
         nav a:hover { color: var(--himachali-red); }
 
-        /* HERO TEXT */
         .hero-text {
             flex-grow: 1;
             display: flex;
@@ -112,19 +108,32 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.2); /* Lighter overlay to see green text */
             color: white;
-            padding: 20px;
+            padding: 60px 20px;
         }
 
-        .hero-text h1 { font-size: 3.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        /* UPDATED: HERO TEXT COLOUR */
+        .hero-text h1 { 
+            font-size: 4rem; 
+            color: var(--pine-green); /* Changed to Green */
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8); /* Light shadow for readability */
+            margin: 0; 
+            font-weight: 900;
+        }
+        
+        .hero-text p {
+            font-size: 1.5rem;
+            color: #000;
+            font-weight: 600;
+        }
 
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             padding: 40px;
-            background: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.85);
         }
 
         .card {
@@ -133,7 +142,10 @@
             border-radius: 15px;
             text-align: center;
             border-bottom: 5px solid var(--himachali-red);
+            transition: transform 0.3s ease;
         }
+        
+        .card:hover { transform: translateY(-10px); }
 
         .footer {
             background: var(--pine-green);
@@ -174,15 +186,15 @@
     <div class="service-grid">
         <div class="card">
             <h3>Village Broadband</h3>
-            <p>Dedicated fiber and satellite links for remote homes.</p>
+            <p>Dedicated fiber and satellite links for remote mountain homes.</p>
         </div>
         <div class="card">
             <h3>Himachal Special Plans</h3>
-            <p>Special rates for local residents and traditional businesses.</p>
+            <p>Subsidized rates for local residents and traditional businesses.</p>
         </div>
         <div class="card">
-            <h3>Global Roaming and Wi-Fi Calling</h3>
-            <p>Special direct lines to +966 for our travelers.</p>
+            <h3>Global Roaming & Wi-Fi Calling</h3>
+            <p>Seamless international connectivity + Crystal clear calls via Wi-Fi. Direct lines to <b>+966</b> for travelers.</p>
         </div>
     </div>
 
