@@ -3,237 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himachal-Tel | Mountain Connectivity</title>
+    <title>Himachal-Tel | Connecting the Mountains</title>
     <style>
         :root {
+            --pine-green: #1b4332;
+            --snow-blue: #d8e9f0;
+            --himachali-red: #b91d1d;
+            --cap-gold: #fbbf24;
             --pleasant-blue: #0288d1;
-            --pine-green: #2d6a4f;
-            --snow-white: #ffffff;
-            --himachali-cap-red: #c62828;
-            --himachali-cap-gold: #ffc107;
-            --main-font: 'Segoe UI', Arial, sans-serif;
         }
 
         body {
             margin: 0;
-            font-family: var(--main-font);
-            background-color: #f0f4f8;
-            color: #333;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            /* Fail-safe background: Pure CSS Snowy Forest Gradient */
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                        url('https://www.transparenttextures.com/patterns/snow.png'),
+                        linear-gradient(to bottom, #2d6a4f, #d8e9f0);
+            background-attachment: fixed;
+            background-size: cover;
+            min-height: 100vh;
         }
 
-        /* --- THE NEW LOGO SECTION --- */
-        .brand {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 12px;
-        }
-
-        /* 1. Stylyzed Pine Branch */
-        .pine-branch {
-            font-size: 32px;
-            color: var(--pine-green);
-            transform: rotate(-15deg);
-        }
-
-        /* 2. Hanging Items Container */
-        .hanging-items {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        /* The string connecting branch to items */
-        .hanging-string {
-            width: 2px;
-            height: 15px;
-            background-color: #777;
-        }
-
-        /* Mobile Icon and Cap icon container */
-        .items-row {
-            display: flex;
-            gap: 5px;
-        }
-
-        .mobile-icon { font-size: 18px; color: #555; }
-        .cap-icon { font-size: 18px; color: var(--himachali-cap-red); text-shadow: 1px 1px 0 var(--himachali-cap-gold); }
-
-        /* The Brand Text */
-        .logo-text {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: var(--pine-green);
-        }
-
-        /* --------------------------- */
-
-        header {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 5px 50px;
+        /* --- THE SPECIFIC REQUESTED LOGO --- */
+        .header-container {
+            background: white;
+            padding: 10px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        nav a {
-            text-decoration: none;
-            color: #444;
-            margin: 0 10px;
-            font-weight: 600;
-            font-size: 13px;
-            transition: 0.3s;
-        }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
 
-        nav a:hover { color: var(--pine-green); }
-
-        /* --- NEW HERO: GREEN PINE & SNOW BACKGROUND --- */
-        .hero {
+        .pine-branch-art {
+            width: 60px;
+            height: 40px;
+            border-top: 6px solid #3d2b1f; /* Pine Wood Branch */
+            border-radius: 50% 50% 0 0;
             position: relative;
-            /* Direct link to specific Snowy Pine landscape */
-            background-image: url('https://images.unsplash.com/photo-1610471206159-86bd9bb828a2?auto=format&fit=crop&q=80&w=2070');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            transform: rotate(-10deg);
         }
 
-        .hero::before {
+        /* The Hanging Mobile */
+        .pine-branch-art::after {
             content: "";
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 40, 85, 0.3); 
+            left: 30px; top: 0;
+            width: 2px; height: 30px;
+            background: #555;
         }
 
-        .hero-content { position: relative; z-index: 1; text-align: center; }
-        .hero h2 { font-size: 46px; margin-bottom: 5px; }
-        .hero p { font-size: 18px; font-weight: 300; margin-bottom: 25px; }
-
-        .btn-prime {
-            padding: 15px 40px;
-            background: var(--himachali-cap-gold);
-            border: none;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: 0.3s;
+        .mobile-hanging {
+            position: absolute;
+            left: 22px; top: 30px;
+            width: 18px; height: 32px;
+            background: #333;
+            border: 2px solid #999;
+            border-radius: 3px;
+            z-index: 5;
         }
 
-        .btn-prime:hover {
-            transform: scale(1.05);
-            background: #ffb300;
+        /* The Himachali Cap in front */
+        .himachali-cap {
+            position: absolute;
+            left: 5px; top: 25px;
+            width: 35px; height: 20px;
+            background: var(--himachali-red);
+            border-top: 5px solid var(--cap-gold);
+            border-radius: 5px 5px 0 0;
+            z-index: 10;
         }
 
-        .section { padding: 40px; max-width: 1200px; margin: auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .logo-text { font-size: 24px; font-weight: 900; color: var(--pine-green); margin-left: 20px; }
 
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            text-align: center;
-            border-bottom: 4px solid var(--pine-green);
-        }
+        /* NAVIGATION */
+        nav a { text-decoration: none; color: #333; margin: 0 10px; font-weight: 600; font-size: 13px; }
+        nav a:hover { color: var(--pleasant-blue); }
 
-        .card h3 { color: var(--pine-green); margin-bottom: 8px; }
-        .card p { font-size: 14px; color: #666; }
-
-        .support-bar {
-            background: var(--pine-green);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .contact-box {
+        /* HERO SECTION */
+        .hero {
+            height: 400px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 40px;
-            margin-top: 15px;
-            flex-wrap: wrap;
+            align-items: center;
+            text-align: center;
+            /* This is the Rural Himachal Image - if this fails, the CSS gradient above takes over */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1596701062351-be5f6a200a45?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-bottom: 8px solid var(--pine-green);
         }
 
-        .contact-item b { color: var(--himachali-cap-gold); font-size: 18px; }
+        .section { padding: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 10px; text-align: center; border-left: 5px solid var(--himachali-red); }
 
-        footer { padding: 20px; text-align: center; background: #f1f1f1; font-size: 11px; color: #777; }
+        .support-footer { background: var(--pine-green); color: white; padding: 30px; text-align: center; }
+        .support-footer b { color: var(--cap-gold); }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="#" class="brand">
-        <span class="pine-branch">🌲</span>
-        
-        <div class="hanging-items">
-            <div class="hanging-string"></div>
-            <div class="items-row">
-                <span class="mobile-icon">📱</span>
-                <span class="cap-icon">🎓</span>
-            </div>
+<div class="header-container">
+    <div class="logo-area">
+        <div class="pine-branch-art">
+            <div class="mobile-hanging"></div>
+            <div class="himachali-cap"></div>
         </div>
-        
         <span class="logo-text">HIMACHAL-TEL</span>
-    </a>
-
+    </div>
     <nav>
         <a href="#">Prepaid</a>
         <a href="#">Postpaid</a>
-        <a href="#">PayGo</a>
+        <a href="#">PayGo Rates</a>
         <a href="#">eSIM</a>
-        <a href="#">Roaming</a>
+        <a href="#">Global Roaming</a>
         <a href="#">Satellite</a>
     </nav>
-</header>
-
-<section class="hero">
-    <div class="hero-content">
-        <h2>Connecting the Peaks</h2>
-        <p>Reliable 5G Coverage. Snowproof Network.</p>
-        <button class="btn-prime">Explore Packages</button>
-    </div>
-</section>
-
-<section class="section">
-    <div class="grid">
-        <div class="card">
-            <h3>eSIM Activation</h3>
-            <p>Go digital instantly. No physical SIM needed for mountain trekking.</p>
-        </div>
-        <div class="card">
-            <h3>Global Roaming</h3>
-            <p>Seamless connectivity from Shimla to Riyadh and beyond.</p>
-        </div>
-        <div class="card">
-            <h3>Satellite Services</h3>
-            <p>Specialized satellite packages for remote snow zones.</p>
-        </div>
-    </div>
-</section>
-
-<div class="support-bar">
-    <h2>24/7 Priority Support</h2>
-    <div class="contact-box">
-        <div class="contact-item">Toll Free: <b>111</b></div>
-        <div class="contact-item">Direct: <b>+966-592431842</b></div>
-    </div>
 </div>
 
-<footer>
-    <p>© 2026 Himachal-Tel. Head Office: Shimla, HP. International Desk: Riyadh, KSA.</p>
-</footer>
+<header class="hero">
+    <h1>Connecting Rural Himachal</h1>
+    <p>5G Signal from Shimla to the Smallest Village</p>
+</header>
+
+<div class="section">
+    <div class="card"><h3>Prepaid Plans</h3><p>Lowest rates for local calls.</p></div>
+    <div class="card"><h3>Satellite</h3><p>Coverage for remote snow peaks.</p></div>
+    <div class="card"><h3>Global Roaming</h3><p>Stay connected in KSA and beyond.</p></div>
+</div>
+
+<div class="support-footer">
+    <p>Toll Free: <b>111</b> | Direct: <b>+966-592431842</b></p>
+    <p>© 2026 Himachal-Tel. All Rights Reserved.</p>
+</div>
 
 </body>
 </html>
